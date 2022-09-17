@@ -4,6 +4,8 @@ const catsDiv = document.getElementById("chigir");
 let chigirItem = `<div class="chigir-item"> <img src="./img/chigir.jpg" alt=""> </div>`
 let agurkItem = `<div class="agurk-item"> <img src="./img/agurk.jpg" alt=""> </div>`
 let customCatItem = `<div class="custom-cat-item"> <img src="./img/custom-cat.jpg" alt=""> </div>`
+let errorTextItem = `<div id="error-text" > <p>You didn't add text</p> </div>`
+let clearErrorItem = `<div class="error-item"> <button id="error-button"> Clear Error </button> </div>`
 
 let addAgurkButton = document.getElementById("agurk-button");
 console.log(addAgurkButton)
@@ -38,8 +40,20 @@ function addCustomCat() {
     if (catNameInput.value.length > 0) {
         addCat(customCatItem, catNameInput.value);
         catNameInput.value = "";
+    } else {
+        catsDiv.innerHTML =  catsDiv.innerHTML + clearErrorItem + errorTextItem;
+        const clearErrorButton= document.getElementById("error-button")
+        clearErrorButton.onclick = clearError;
     }
 }
+
+function clearError() {
+    const errorContainer = document.getElementById("error-text");
+    errorContainer.remove(); 
+    const clearErrorButton= document.getElementById("error-button")
+    clearErrorButton.remove();
+    console.log(errorContainer)
+};
 
 
 addAgurkButton.onclick = addAgurk;
@@ -47,5 +61,7 @@ addChigirButton.onclick = addChigir;
 clearChigirButton.onclick = clearChigir;
 catNameButton.onclick = showCatName;
 addCustomCatButton.onclick = addCustomCat;
+
+
 
 
