@@ -1,8 +1,12 @@
-.chigir-item img, .agurk-item img{
-    height: 300px;
-    width: 300px;
-};
+#error-text {
+    color: red;
+    display: none;
+  }
 
-
+.chigir-item img,
+.agurk-item img {
+  height: 300px;
+  width: 300px;
+}
 
 

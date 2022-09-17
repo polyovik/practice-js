@@ -4,8 +4,8 @@ const catsDiv = document.getElementById("chigir");
 let chigirItem = `<div class="chigir-item"> <img src="./img/chigir.jpg" alt=""> </div>`
 let agurkItem = `<div class="agurk-item"> <img src="./img/agurk.jpg" alt=""> </div>`
 let customCatItem = `<div class="custom-cat-item"> <img src="./img/custom-cat.jpg" alt=""> </div>`
-let errorTextItem = `<div id="error-text" > <p>You didn't add text</p> </div>`
-let clearErrorItem = `<div class="error-item"> <button id="error-button"> Clear Error </button> </div>`
+/* let errorTextItem = `<div id="error-text"> <p>You didn't add text</p> </div>`
+let clearErrorItem = `<div class="error-item"> <button id="error-button"> Clear Error </button> </div>` */
 
 let addAgurkButton = document.getElementById("agurk-button");
 console.log(addAgurkButton)
@@ -14,6 +14,7 @@ let addChigirButton = document.getElementById("chigir-button");
 let catNameInput = document.getElementById("cat-name");
 let catNameButton = document.getElementById("show-cat-name");
 let addCustomCatButton = document.getElementById("custom-cat");
+const clearErrorButton = document.getElementById("error-button");
 
 function addCat(catItem, catName) {
     const catNameText = /* '<h1>'  + catName +  '</h1>' */ `<h1> ${catName} </h1>`
@@ -40,19 +41,25 @@ function addCustomCat() {
     if (catNameInput.value.length > 0) {
         addCat(customCatItem, catNameInput.value);
         catNameInput.value = "";
-    } else {
+    } /* else {
         catsDiv.innerHTML =  catsDiv.innerHTML + clearErrorItem + errorTextItem;
-        const clearErrorButton= document.getElementById("error-button")
+        const clearErrorButton = document.getElementById("error-button")
         clearErrorButton.onclick = clearError;
+    } */
+    else {
+        const errorItem = document.getElementById("error-text");
+        errorItem.style.display = "inline";
     }
 }
 
-function clearError() {
-    const errorContainer = document.getElementById("error-text");
+function hideError() {
+    const errorItem = document.getElementById("error-text");
+    errorItem.style.display = "none";
+    /* const errorContainer = document.getElementById("error-text");
     errorContainer.remove(); 
     const clearErrorButton= document.getElementById("error-button")
     clearErrorButton.remove();
-    console.log(errorContainer)
+    console.log(errorContainer) */
 };
 
 
@@ -61,6 +68,8 @@ addChigirButton.onclick = addChigir;
 clearChigirButton.onclick = clearChigir;
 catNameButton.onclick = showCatName;
 addCustomCatButton.onclick = addCustomCat;
+clearErrorButton.onclick = hideError;
+
 
 
 
