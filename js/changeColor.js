@@ -8,27 +8,27 @@ const textForBlankContainerInput = document.getElementById('text-for-blank-conta
 
 
 /**
- * 
+ * @param {Object} element
  * @param {string} colorToAdd 
  */
-function addColor(colorToAdd) {
-    blankContainer.style.backgroundColor = colorToAdd; 
+function addColor(element, colorToAdd) {
+    element.style.backgroundColor = colorToAdd; 
 } 
 
 function addRedColor(){
-    addColor('red')
+    addColor(blankContainer, 'red')
 }
 
 function addBlueColor(){
-    addColor('blue')
+    addColor(blankContainer,'blue')
 }
 
 function addYellowColor(){
-    addColor('yellow');
+    addColor(blankContainer,'yellow');
 }
 
 function reset() {
-    addColor('antiquewhite');
+    addColor(blankContainer, 'antiquewhite');
     updateText(blankContainer, '');
 }
 
